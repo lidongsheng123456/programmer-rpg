@@ -1,56 +1,58 @@
-# 码力值 DevQuest
+# DevQuest \u7801\u529b\u503c
 
-一款为程序员打造的 RPG 风格 iOS App，用游戏化方式追踪你的编程、运维、健身和写作数据。
+> \u7a0b\u5e8f\u5458 RPG \u6210\u957f\u7cfb\u7edf \u2014\u2014 \u628a\u4f60\u7684\u7f16\u7801\u3001\u8fd0\u7ef4\u3001\u5065\u5eb7\u6570\u636e\u5316\u4e3a\u516d\u7ef4\u6218\u529b\u503c
 
-## 功能模块
+## \u9879\u76ee\u7ed3\u6784\uff08Spring Boot \u98ce\u683c\uff09
 
-| 模块 | 描述 |
+```
+programmer-rpg/
+\u251c\u2500\u2500 application/        # \u5e94\u7528\u5165\u53e3\uff08\u7c7b\u6bd4 @SpringBootApplication\uff09
+\u251c\u2500\u2500 config/              # \u914d\u7f6e\u4e0e\u4f9d\u8d56\u6ce8\u5165\uff08\u7c7b\u6bd4 @Configuration\uff09
+\u251c\u2500\u2500 controller/          # \u89c6\u56fe\u63a7\u5236\u5668\u5c42\uff08\u7c7b\u6bd4 @Controller\uff09
+\u2502   \u251c\u2500\u2500 dashboard/       # \u6218\u529b\u4eea\u8868\u76d8
+\u2502   \u251c\u2500\u2500 guardian/        # \u670d\u52a1\u5668\u5b88\u62a4
+\u2502   \u251c\u2500\u2500 github/          # GitHub \u6218\u573a
+\u2502   \u251c\u2500\u2500 fitness/         # \u4f53\u80fd\u526f\u672c
+\u2502   \u251c\u2500\u2500 achievements/    # \u6210\u5c31\u7cfb\u7edf
+\u2502   \u2514\u2500\u2500 settings/        # \u8bbe\u7f6e
+\u251c\u2500\u2500 service/             # \u4e1a\u52a1\u903b\u8f91\u5c42\uff08\u7c7b\u6bd4 @Service\uff09
+\u251c\u2500\u2500 repository/          # \u6570\u636e\u4ed3\u5e93\u5c42\uff08\u7c7b\u6bd4 @Repository\uff09
+\u2502   \u251c\u2500\u2500 protocol/        # \u4ed3\u5e93\u63a5\u53e3
+\u2502   \u2514\u2500\u2500 impl/            # \u4ed3\u5e93\u5b9e\u73b0
+\u251c\u2500\u2500 model/               # \u6570\u636e\u6a21\u578b\u5c42
+\u2502   \u251c\u2500\u2500 entity/          # \u5b9e\u4f53\uff08\u7c7b\u6bd4 @Entity\uff09
+\u2502   \u2514\u2500\u2500 dto/             # \u6570\u636e\u4f20\u8f93\u5bf9\u8c61
+\u251c\u2500\u2500 datasource/          # \u6570\u636e\u6e90\u5c42
+\u2502   \u251c\u2500\u2500 local/           # \u672c\u5730\u6570\u636e\u6e90
+\u2502   \u2514\u2500\u2500 remote/          # \u8fdc\u7a0b\u6570\u636e\u6e90
+\u251c\u2500\u2500 common/              # \u516c\u5171\u5de5\u5177\u5c42
+\u2502   \u251c\u2500\u2500 network/         # \u7f51\u7edc\u5ba2\u6237\u7aef
+\u2502   \u251c\u2500\u2500 persistence/     # \u6301\u4e45\u5316
+\u2502   \u251c\u2500\u2500 extensions/      # Swift \u6269\u5c55
+\u2502   \u2514\u2500\u2500 ui/              # UI \u7ec4\u4ef6\u5e93
+\u251c\u2500\u2500 widget/              # iOS \u684c\u9762\u5c0f\u7ec4\u4ef6
+\u2514\u2500\u2500 resources/           # \u8d44\u6e90\u6587\u4ef6
+```
+
+## \u6280\u672f\u6808
+
+- **\u8bed\u8a00**: Swift 5.9
+- **UI \u6846\u67b6**: SwiftUI
+- **\u67b6\u6784**: Clean Architecture + MVVM
+- **\u6700\u4f4e\u7248\u672c**: iOS 17.0
+- **\u5de5\u7a0b\u751f\u6210**: XcodeGen
+- **CI/CD**: GitHub Actions
+
+## \u529f\u80fd\u6a21\u5757
+
+| \u6a21\u5757 | \u8bf4\u660e |
 |------|------|
-| 战力面板 | 六维雷达图展示攻击/防御/生命/智力/敏捷/声望 |
-| 服务器守护兽 | HTTP 健康检查 + 响应时间曲线 + 7 天在线率 |
-| GitHub 战报 | Commit 统计 + 贡献热力图 + 仓库排行 |
-| 健身副本 | HealthKit 步数/卡路里/运动时间追踪 |
-| 成就殿堂 | 8+ 成就解锁 + 进度追踪 |
-| 桌面 Widget | 战力值 + 服务器状态小组件 |
+| \u6218\u529b\u4eea\u8868\u76d8 | \u516d\u7ef4\u96f7\u8fbe\u56fe\u5c55\u793a\u7efc\u5408\u6218\u529b |
+| \u670d\u52a1\u5668\u5b88\u62a4 | \u76d1\u63a7\u670d\u52a1\u5668\u5728\u7ebf\u72b6\u6001\u548c\u54cd\u5e94\u65f6\u95f4 |
+| GitHub \u6218\u573a | \u63d0\u4ea4\u7edf\u8ba1\u3001\u8d21\u732e\u70ed\u529b\u56fe\u3001\u70ed\u95e8\u4ed3\u5e93 |
+| \u4f53\u80fd\u526f\u672c | HealthKit \u6570\u636e\u9a71\u52a8\u7684\u6bcf\u65e5\u526f\u672c\u6311\u6218 |
+| \u6210\u5c31\u7cfb\u7edf | \u591a\u7ef4\u5ea6\u6210\u5c31\u89e3\u9501\u4e0e\u8fdb\u5ea6\u8ffd\u8e2a |
 
-## 技术架构
+## \u6784\u5efa
 
-Clean Architecture + MVVM，借鉴 Spring Boot 分层思想：
-
-```
-DevQuest/
-├── App/           # 入口 + DI 容器
-├── Core/          # 基础设施 (Network / Persistence / Config)
-├── Domain/        # 领域层 (Entity + Protocol + UseCase)
-├── Data/          # 数据层 (DTO + DataSource + Repository Impl)
-├── Features/      # 功能模块 (View + ViewModel)
-├── DesignSystem/  # 设计系统 (Theme + Components + Modifiers)
-└── Widget/        # WidgetKit 扩展
-```
-
-## 构建
-
-需要 macOS + Xcode 15+。
-
-```bash
-# 安装 XcodeGen
-brew install xcodegen
-
-# 生成 Xcode 项目
-xcodegen generate
-
-# 构建
-xcodebuild build \
-  -project DevQuest.xcodeproj \
-  -scheme DevQuest \
-  -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-```
-
-## 六维战力计算公式
-
-- **攻击力** = min(100, todayCommits × 10 + weekCommits × 2)
-- **防御力** = 7 天服务器在线率
-- **生命值** = min(100, todaySteps / 100 + workoutMinutes × 2)
-- **智力** = min(100, totalBlogPosts × 5 + recentPostBonus)
-- **敏捷** = 基于 Issue 关闭速度
-- **声望** = min(100, totalStars × 5 + followers × 3)
+\u9879\u76ee\u901a\u8fc7 GitHub Actions \u81ea\u52a8\u6784\u5efa\uff0c\u63a8\u9001\u4ee3\u7801\u5230 main \u5206\u652f\u5373\u53ef\u89e6\u53d1 CI\uff0c\u6784\u5efa\u4ea7\u7269\u4e3a\u65e0\u7b7e\u540d IPA \u6587\u4ef6\u3002

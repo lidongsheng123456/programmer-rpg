@@ -10,20 +10,22 @@ settings:
   base:
     SWIFT_VERSION: "5.9"
     TARGETED_DEVICE_FAMILY: "1"
-    INFOPLIST_FILE: Resources/Info.plist
+    INFOPLIST_FILE: resources/Info.plist
 
 targets:
   DevQuest:
     type: application
     platform: iOS
     sources:
-      - path: App
-      - path: Core
-      - path: Domain
-      - path: Data
-      - path: Features
-      - path: DesignSystem
-      - path: Resources
+      - path: application
+      - path: config
+      - path: service
+      - path: repository
+      - path: model
+      - path: datasource
+      - path: controller
+      - path: common
+      - path: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.devquest.app
@@ -44,13 +46,13 @@ targets:
     type: app-extension
     platform: iOS
     sources:
-      - path: Widget
-      - path: Core/Config
-      - path: Core/Persistence
-      - path: Core/Extensions
-      - path: Domain/Entities
-      - path: Data/DataSources/Local
-      - path: DesignSystem/Theme
+      - path: widget
+      - path: config/AppConfig.swift
+      - path: common/persistence
+      - path: common/extensions
+      - path: model/entity
+      - path: datasource/local
+      - path: common/ui/theme
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.devquest.app.widget
