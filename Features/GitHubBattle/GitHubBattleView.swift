@@ -20,19 +20,19 @@ struct GitHubBattleView: View {
                             }
                         }
                         HStack(spacing: AppTheme.spacingMD) {
-                            StatCard(title: "浠婃棩 Commits", value: "\(p.todayCommits)", icon: "flame.fill", iconColor: AppColors.accent)
-                            StatCard(title: "鎬?Stars", value: "\(p.totalStars)", icon: "star.fill", iconColor: AppColors.accentGold)
+                            StatCard(title: "Today Commits", value: "\(p.todayCommits)", icon: "flame.fill", iconColor: AppColors.accent)
+                            StatCard(title: "Total Stars", value: "\(p.totalStars)", icon: "star.fill", iconColor: AppColors.accentGold)
                         }
                         if let c = viewModel.contributions {
                             GlassCard {
                                 VStack(alignment: .leading, spacing: AppTheme.spacingMD) {
-                                    Text("璐＄尞鐑姏鍥?).font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
+                                    Text("Contribution Heatmap").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
                                     ContributionGridView(summary: c).frame(height: 120)
                                 }
                             }
                         }
                         VStack(alignment: .leading, spacing: AppTheme.spacingMD) {
-                            Text("鐑棬浠撳簱").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
+                            Text("Top Repositories").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
                             ForEach(p.repos.sorted(by: { $0.stargazersCount > $1.stargazersCount }).prefix(5)) { repo in
                                 GlassCard(padding: AppTheme.spacingMD) {
                                     VStack(alignment: .leading, spacing: AppTheme.spacingSM) {
@@ -50,7 +50,7 @@ struct GitHubBattleView: View {
                 }.padding(.horizontal, AppTheme.spacingLG).padding(.bottom, AppTheme.spacingXXL)
             }
             .background(AppColors.backgroundGradient.ignoresSafeArea())
-            .navigationTitle("GitHub 鎴樻姤").navigationBarTitleDisplayMode(.large)
+            .navigationTitle("GitHub Battle").navigationBarTitleDisplayMode(.large)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .refreshable { await viewModel.refresh() }.task { await viewModel.refresh() }
         }.preferredColorScheme(.dark)

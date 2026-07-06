@@ -10,8 +10,8 @@ struct AchievementsView: View {
                     GlassCard {
                         HStack {
                             VStack(alignment: .leading, spacing: AppTheme.spacingSM) {
-                                Text("鎴愬氨杩涘害").font(AppTypography.heading2).foregroundStyle(AppColors.textPrimary)
-                                Text("\(viewModel.unlockedCount) / \(viewModel.totalCount) 宸茶В閿?).font(AppTypography.bodyMedium).foregroundStyle(AppColors.accentGold)
+                                Text("Achievement Progress").font(AppTypography.heading2).foregroundStyle(AppColors.textPrimary)
+                                Text("\(viewModel.unlockedCount) / \(viewModel.totalCount) Unlocked").font(AppTypography.bodyMedium).foregroundStyle(AppColors.accentGold)
                             }; Spacer()
                             AnimatedProgressRing(progress: viewModel.totalCount > 0 ? Double(viewModel.unlockedCount) / Double(viewModel.totalCount) : 0, size: 70, gradientColors: [AppColors.accentGold, AppColors.accent])
                                 .overlay { Image(systemName: "trophy.fill").foregroundStyle(AppColors.accentGold) }
@@ -19,7 +19,7 @@ struct AchievementsView: View {
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: AppTheme.spacingSM) {
-                            catChip(nil, "鍏ㄩ儴")
+                            catChip(nil, "All")
                             ForEach(Achievement.Category.allCases, id: \.self) { c in catChip(c, c.rawValue) }
                         }
                     }
@@ -43,7 +43,7 @@ struct AchievementsView: View {
                 }.padding(.horizontal, AppTheme.spacingLG).padding(.bottom, AppTheme.spacingXXL)
             }
             .background(AppColors.backgroundGradient.ignoresSafeArea())
-            .navigationTitle("鎴愬氨娈垮爞").navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Achievements").navigationBarTitleDisplayMode(.large)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar { ToolbarItem(placement: .topBarTrailing) { Button { showSettings = true } label: { Image(systemName: "gearshape.fill").foregroundStyle(AppColors.textSecondary) } } }
             .sheet(isPresented: $showSettings) { SettingsView(viewModel: SettingsViewModel()) }

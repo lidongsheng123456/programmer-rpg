@@ -9,17 +9,17 @@ struct GuardianDetailView: View {
                     VStack(spacing: AppTheme.spacingMD) {
                         Text(status.config.guardianEmoji).font(.system(size: 64))
                         Text(status.config.name).font(AppTypography.heading2).foregroundStyle(AppColors.textPrimary)
-                        StatusBadge(status.isOnline ? .online : .offline, label: status.isOnline ? "瀹堟姢涓? : "宸茬绾?)
+                        StatusBadge(status.isOnline ? .online : .offline, label: status.isOnline ? "Guarding" : "Offline")
                     }.frame(maxWidth: .infinity)
                 }
                 HStack(spacing: AppTheme.spacingMD) {
-                    StatCard(title: "鍝嶅簲鏃堕棿", value: "\(status.responseTimeMs)ms", icon: "bolt.fill", iconColor: AppColors.success)
-                    StatCard(title: "7澶╁湪绾跨巼", value: String(format: "%.1f%%", history?.uptimePercentage ?? 0), icon: "chart.line.uptrend.xyaxis", iconColor: AppColors.info)
+                    StatCard(title: "Response Time", value: "\(status.responseTimeMs)ms", icon: "bolt.fill", iconColor: AppColors.success)
+                    StatCard(title: "7-Day Uptime", value: String(format: "%.1f%%", history?.uptimePercentage ?? 0), icon: "chart.line.uptrend.xyaxis", iconColor: AppColors.info)
                 }
                 if let h = history, !h.recentRecords.isEmpty {
                     GlassCard {
                         VStack(alignment: .leading, spacing: AppTheme.spacingMD) {
-                            Text("鍝嶅簲鏃堕棿瓒嬪娍").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
+                            Text("Response Time Trend").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary)
                             ResponseTimeChartView(records: h.recentRecords).frame(height: 200)
                         }
                     }
@@ -27,8 +27,8 @@ struct GuardianDetailView: View {
                 GlassCard {
                     VStack(spacing: AppTheme.spacingMD) {
                         detailRow("URL", status.config.url); Divider().background(AppColors.borderLight)
-                        detailRow("鐘舵€佺爜", "\(status.statusCode)"); Divider().background(AppColors.borderLight)
-                        detailRow("妫€娴嬫椂闂?, status.checkedAt.relativeString)
+                        detailRow("Status Code", "\(status.statusCode)"); Divider().background(AppColors.borderLight)
+                        detailRow("Checked At", status.checkedAt.relativeString)
                     }
                 }
             }.padding(.horizontal, AppTheme.spacingLG).padding(.bottom, AppTheme.spacingXXL)

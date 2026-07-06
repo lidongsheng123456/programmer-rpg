@@ -8,7 +8,7 @@ final class FitnessDungeonViewModel: ObservableObject {
     init(fetchFitnessData: FetchFitnessDataUseCase) { self.fetchFitnessData = fetchFitnessData }
 
     func requestPermission() async {
-        do { try await fetchFitnessData.requestPermission(); isAuthorized = true; await refresh() } catch { errorMessage = "HealthKit 鎺堟潈澶辫触" }
+        do { try await fetchFitnessData.requestPermission(); isAuthorized = true; await refresh() } catch { errorMessage = "HealthKit authorization failed" }
     }
     func refresh() async {
         isLoading = true; errorMessage = nil

@@ -31,6 +31,6 @@ struct PowerWidget: Widget {
     let kind = "PowerWidget"
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PowerWidgetProvider()) { PowerWidgetView(entry: $0) }
-            .configurationDisplayName("鐮佸姏鍊?).description("瀹炴椂鏄剧ず鍏淮鎴樺姏鍊?).supportedFamilies([.systemSmall, .systemMedium])
+            .configurationDisplayName("DevQuest Power").description("Real-time six-dimension power stats").supportedFamilies([.systemSmall, .systemMedium])
     }
 }

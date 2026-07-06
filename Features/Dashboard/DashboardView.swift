@@ -14,7 +14,7 @@ struct DashboardView: View {
                 .padding(.horizontal, AppTheme.spacingLG).padding(.bottom, AppTheme.spacingXXL)
             }
             .background(AppColors.backgroundGradient.ignoresSafeArea())
-            .navigationTitle("鎴樺姏闈㈡澘").navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Power Dashboard").navigationBarTitleDisplayMode(.large)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .refreshable { await viewModel.refresh() }
             .task { await viewModel.refresh() }
@@ -26,7 +26,7 @@ struct DashboardView: View {
             HStack {
                 VStack(alignment: .leading, spacing: AppTheme.spacingXS) {
                     Text(viewModel.powerStats.level.rawValue).font(AppTypography.heading2).foregroundStyle(AppColors.accentGold)
-                    Text("缁煎悎鎴樺姏").font(AppTypography.caption).foregroundStyle(AppColors.textSecondary)
+                    Text("Overall Power").font(AppTypography.caption).foregroundStyle(AppColors.textSecondary)
                 }
                 Spacer()
                 VStack(spacing: 2) {
@@ -40,7 +40,7 @@ struct DashboardView: View {
     private var radarSection: some View {
         GlassCard {
             VStack(spacing: AppTheme.spacingMD) {
-                HStack { Text("鍏淮灞炴€?).font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary); Spacer() }
+                HStack { Text("Six Dimensions").font(AppTypography.heading3).foregroundStyle(AppColors.textPrimary); Spacer() }
                 RadarChartView(stats: viewModel.powerStats).frame(height: 280)
             }
         }
