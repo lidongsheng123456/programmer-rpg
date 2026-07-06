@@ -40,7 +40,7 @@ enum AppTab: String, CaseIterable, Identifiable {
         }
     }
 
-    @ViewBuilder
+    @MainActor @ViewBuilder
     func makeView(container: DIContainer) -> some View {
         switch self {
         case .dashboard:    DashboardView(viewModel: container.makeDashboardViewModel())

@@ -53,7 +53,7 @@ struct RadarChartView: View {
     private var center: CGPoint { CGPoint(x: size / 2, y: size / 2) }
     private var radius: CGFloat { size / 2 * 0.7 }
     private func angle(_ i: Int) -> Double { 2 * .pi / Double(n) * Double(i) - .pi / 2 }
-    private func pt(at a: Double, scale: CGFloat) -> CGPoint { CGPoint(x: center.x + cos(a) * radius * scale, y: center.y + sin(a) * radius * scale) }
+    private func pt(at a: Double, scale: CGFloat) -> CGPoint { CGPoint(x: center.x + cos(CGFloat(a)) * radius * scale, y: center.y + sin(CGFloat(a)) * radius * scale) }
     private func polygon(scale: CGFloat) -> Path {
         Path { p in for i in 0..<n { let pt = pt(at: angle(i), scale: scale); i == 0 ? p.move(to: pt) : p.addLine(to: pt) }; p.closeSubpath() }
     }
