@@ -3,12 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>NSHealthShareUsageDescription</key>
-    <string>DevQuest 闇€瑕佽鍙栦綘鐨勫仴搴锋暟鎹紙姝ユ暟銆佸崱璺噷銆佽繍鍔ㄦ椂闂达級鏉ヨ绠楀仴韬壇鏈繘搴﹀拰鐢熷懡鍊兼垬鍔涖€?/string>
+    <string>DevQuest needs to read your health data (steps, calories, exercise time) to calculate fitness dungeon progress and power stats.</string>
     <key>NSHealthUpdateUsageDescription</key>
-    <string>DevQuest 涓嶄細淇敼浣犵殑鍋ュ悍鏁版嵁銆?/string>
+    <string>DevQuest does not modify your health data.</string>
     <key>BGTaskSchedulerPermittedIdentifiers</key>
-    <array><string>com.devquest.serverRefresh</string></array>
+    <array>
+        <string>com.devquest.serverRefresh</string>
+    </array>
     <key>UIBackgroundModes</key>
-    <array><string>fetch</string><string>processing</string></array>
+    <array>
+        <string>fetch</string>
+        <string>processing</string>
+    </array>
 </dict>
 </plist>
